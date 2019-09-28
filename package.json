@@ -1,0 +1,29 @@
+{
+  "name": "simple-apollo-logger",
+  "version": "0.0.1",
+  "description": "A simple logger for Apollo Server",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/est-normalis/simple-apollo-logger.git"
+  },
+  "keywords": [
+    "apollo",
+    "log",
+    "logging",
+    "graphql"
+  ],
+  "author": "Est Normalis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/est-normalis/simple-apollo-logger/issues"
+  },
+  "homepage": "https://github.com/est-normalis/simple-apollo-logger#readme",
+  "devDependencies": {
+    "typescript": "^3.6.3"
+  }
+}
