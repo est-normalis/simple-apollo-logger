@@ -1,0 +1,8 @@
+src
+test
+!package.json
+!package-lock.json
+!dist
+!LICENSE
+!README.md
+tsconfig.json
