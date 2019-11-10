@@ -1,13 +1,17 @@
 import deepReplace from './helpers/deepReplace'
 
 export default class ApolloLogExtension {
-    requestDidStart(request: request) {
+    requestDidStart(request: any): void {
         console.log(prefix() + stringifiedRequestAttributes(request))
     }
   
-    willSendResponse(object: any) {
-      console.log(JSON.stringify(object.graphqlResponse.data))
+    willSendResponse(object: any): void {
+      //console.log(JSON.stringify(object.graphqlResponse.data))
     }
+
+    parsingDidStart(r: any): void {}
+    validationDidStart(): void {}
+    executionDidStart(r: any): void {}
 }
 
 
