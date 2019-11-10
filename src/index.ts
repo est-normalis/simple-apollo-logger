@@ -1,3 +1,5 @@
+import deepReplace from './helpers/deepReplace'
+
 export default class ApolloLogExtension {
     requestDidStart(request: request) {
         console.log(prefix() + stringifiedRequestAttributes(request))
@@ -14,9 +16,7 @@ const prefix = (): string => {
 }
 
 const filterPasswordFromVariables = (variables: { password?: string }) => {
-    if ('password' in variables) {
-        variables.password = "[FILTERED]"
-    }
+    deepReplace(variables, "password", "[FILTERED]")
 
     return variables
 }

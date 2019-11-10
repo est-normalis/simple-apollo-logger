@@ -18,3 +18,32 @@ Variables: {}",
   ],
 }
 `;
+
+exports[`requestDidStart function login mutation request logs login mutation 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "[1600689779135] IntrospectionQuery
+Headers: {\\"Authorization\\":\\"eyyyyLMAO.dd.json\\"}
+QueryString: \\"queryIntrospectionQuery{ __schema{ queryType{ name } mutationType{ name } subscriptionType{ name } types{ ...FullType } directives{ name description locations args{ ...InputValue } } } }  fragmentFullTypeon__Type{ kind name description fields(includeDeprecated:true){ name description args{ ...InputValue } type{ ...TypeRef } isDeprecated deprecationReason } inputFields{ ...InputValue } interfaces{ ...TypeRef } enumValues(includeDeprecated:true){ name description isDeprecated deprecationReason } possibleTypes{ ...TypeRef } }  fragmentInputValueon__InputValue{ name description type{ ...TypeRef } defaultValue }  fragmentTypeRefon__Type{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name } } } } } } } } \\"
+Variables: {}",
+    ],
+    Array [
+      "[1600689779135] null
+Headers: undefined
+QueryString: \\"mutation($input:SignupInput!){ signup(input:$input){ token } } \\"
+Variables: {\\"input\\":{\\"email\\":\\"ddddddddassaaaaad@dddd.dde\\",\\"password\\":\\"[FILTERED]\\",\\"name\\":\\"ddoopson\\"}}",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;

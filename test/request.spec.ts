@@ -22,4 +22,12 @@ describe("requestDidStart function", () => {
             expect(console.log).toMatchSnapshot()
         })
     })
+
+    describe('login mutation request', () => {
+        it('logs login mutation', () => {
+            logger.requestDidStart(loginRequest)
+
+            expect(console.log).toMatchSnapshot()
+        })
+    })
 })
