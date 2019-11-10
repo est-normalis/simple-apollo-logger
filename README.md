@@ -1,5 +1,7 @@
 # @est-normalis/simple-apollo-logger
 
+[![npm version](https://badge.fury.io/js/%40est-normalis%2Fsimple-apollo-logger.svg)](https://badge.fury.io/js/%40est-normalis%2Fsimple-apollo-logger)
+
 A very simple logger for Apollo Server
 
 **Warning** simple-apollo-logger is in alpha version.
