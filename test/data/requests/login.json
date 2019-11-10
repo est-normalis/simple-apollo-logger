@@ -1,0 +1,1 @@
+{"queryString":"mutation ($input: SignupInput!) {\n  signup(input: $input) {\n    token\n  }\n}\n","operationName":null,"variables":{"input":{"email":"ddddddddassaaaaad@dddd.dde","password":"dddddddddddddddd","name":"ddoopson"}}}
