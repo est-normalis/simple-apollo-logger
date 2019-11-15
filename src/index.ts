@@ -7,7 +7,7 @@ export default class ApolloLogExtension {
         this.options.logger.log(`${this.options.prefix()} ${msg}`)
     }
 
-    constructor(ops: UserOptions) {
+    constructor(ops: UserOptions = {}) {
         this.options = Object.assign(defaultOptions, ops)
     }
 
