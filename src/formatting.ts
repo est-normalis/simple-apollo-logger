@@ -7,7 +7,7 @@ const filterPasswordFromVariables = (variables: any, keyword: string, replacemen
     return variables
 }
 
-export const stringifiedRequestAttributes = ({ headers, variables, queryString, operationName }: request, variableFilter: VariableFilter | undefined): string => {
+export const stringifiedRequestAttributes = ({ headers, variables, queryString, operationName }: request, variableFilter: VariableFilter | undefined | false): string => {
     if (variableFilter) {
         variableFilter.keywords.forEach((keyword) => {
             filterPasswordFromVariables(variables, keyword, variableFilter.replacementText)

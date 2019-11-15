@@ -44,7 +44,7 @@ interface Options {
     logRequests: boolean
     logResponses: boolean
     prefix: () => string
-    variableFilter: VariableFilter
+    variableFilter: VariableFilter | false
 }
 
 export interface UserOptions {
@@ -52,7 +52,7 @@ export interface UserOptions {
     logRequests?: boolean
     logResponses?: boolean
     prefix?: () => string
-    variableFilter?: VariableFilter
+    variableFilter?: VariableFilter | false
 }
 
 export interface Logger {
