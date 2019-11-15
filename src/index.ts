@@ -4,7 +4,8 @@ export default class ApolloLogExtension {
     private options: Options
     private logger: Logger
 
-    constructor(options: Options) {
+    constructor(ops: Options) {
+        const options = Object.assign(defaultOptions, ops)
         this.options = options
         this.logger = options.logger
     }
@@ -22,10 +23,16 @@ export default class ApolloLogExtension {
     executionDidStart(r: any): void {}
 }
 
+const defaultOptions = {
+    logger: console,
+    logRequests: true,
+    logResponses: false
+}
+
 export interface Options {
-    logger: Logger
-    logRequests: boolean
-    logResponses: boolean
+    logger?: Logger
+    logRequests?: boolean
+    logResponses?: boolean
 }
 
 export interface Logger {
