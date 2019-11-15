@@ -11,11 +11,15 @@ export default class ApolloLogExtension {
     }
 
     requestDidStart(request: any): void {
-        this.logger.log(stringifiedRequestAttributes(request))
+        if (this.options.logRequests) {
+            this.logger.log(stringifiedRequestAttributes(request))
+        }
     }
   
     willSendResponse(object: any): void {
-      this.logger.log(JSON.stringify(object.graphqlResponse.data))
+        if (this.options.logResponses) {
+            this.logger.log(JSON.stringify(object.graphqlResponse.data))
+        }
     }
 
     parsingDidStart(r: any): void {}
