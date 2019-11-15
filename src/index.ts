@@ -2,23 +2,23 @@ import { stringifiedRequestAttributes } from './formatting'
 
 export default class ApolloLogExtension {
     private options: Options
-    private logger: Logger
+    private log(msg: string): void {
+        this.options.logger.log(`${this.options.prefix()} ${msg}`)
+    }
 
-    constructor(ops: Options) {
-        const options = Object.assign(defaultOptions, ops)
-        this.options = options
-        this.logger = options.logger
+    constructor(ops: UserOptions) {
+        this.options = Object.assign(defaultOptions, ops)
     }
 
     requestDidStart(request: any): void {
         if (this.options.logRequests) {
-            this.logger.log(stringifiedRequestAttributes(request))
+            this.log(stringifiedRequestAttributes(request))
         }
     }
   
     willSendResponse(object: any): void {
         if (this.options.logResponses) {
-            this.logger.log(JSON.stringify(object.graphqlResponse.data))
+            this.log(JSON.stringify(object.graphqlResponse.data))
         }
     }
 
@@ -30,13 +30,22 @@ export default class ApolloLogExtension {
 const defaultOptions = {
     logger: console,
     logRequests: true,
-    logResponses: false
+    logResponses: false,
+    prefix: () => `[${Date.now()}]`
 }
 
-export interface Options {
+interface Options {
+    logger: Logger
+    logRequests: boolean
+    logResponses: boolean
+    prefix: () => string
+}
+
+export interface UserOptions {
     logger?: Logger
     logRequests?: boolean
     logResponses?: boolean
+    prefix?: () => string
 }
 
 export interface Logger {
