@@ -1,4 +1,5 @@
 import { stringifiedRequestAttributes } from './formatting'
+import { VariableFilter } from './formatting'
 
 export default class ApolloLogExtension {
     private options: Options
@@ -12,7 +13,7 @@ export default class ApolloLogExtension {
 
     requestDidStart(request: any): void {
         if (this.options.logRequests) {
-            this.log(stringifiedRequestAttributes(request))
+            this.log(stringifiedRequestAttributes(request, this.options.variableFilter))
         }
     }
   
@@ -31,7 +32,11 @@ const defaultOptions = {
     logger: console,
     logRequests: true,
     logResponses: false,
-    prefix: () => `[${Date.now()}]`
+    prefix: () => `[${Date.now()}]`,
+    variableFilter: {
+        keywords: ["password"],
+        replacementText: "[FILTERED]"
+    }
 }
 
 interface Options {
@@ -39,6 +44,7 @@ interface Options {
     logRequests: boolean
     logResponses: boolean
     prefix: () => string
+    variableFilter: VariableFilter
 }
 
 export interface UserOptions {
@@ -46,6 +52,7 @@ export interface UserOptions {
     logRequests?: boolean
     logResponses?: boolean
     prefix?: () => string
+    variableFilter?: VariableFilter
 }
 
 export interface Logger {
