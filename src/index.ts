@@ -1,12 +1,26 @@
-import deepReplace from './helpers/deepReplace'
+import { stringifiedRequestAttributes } from './formatting'
+import { VariableFilter } from './formatting'
 
 export default class ApolloLogExtension {
+    private options: Options
+    private log(msg: string): void {
+        this.options.logger.log(`${this.options.prefix()} ${msg}`)
+    }
+
+    constructor(ops: UserOptions = {}) {
+        this.options = Object.assign(defaultOptions, ops)
+    }
+
     requestDidStart(request: any): void {
-        console.log(prefix() + stringifiedRequestAttributes(request))
+        if (this.options.logRequests) {
+            this.log(stringifiedRequestAttributes(request, this.options.variableFilter))
+        }
     }
   
     willSendResponse(object: any): void {
-      //console.log(JSON.stringify(object.graphqlResponse.data))
+        if (this.options.logResponses) {
+            this.log(JSON.stringify(object.graphqlResponse.data))
+        }
     }
 
     parsingDidStart(r: any): void {}
@@ -14,30 +28,33 @@ export default class ApolloLogExtension {
     executionDidStart(r: any): void {}
 }
 
-
-const prefix = (): string => {
-    return `[${Date.now()}] `
+const defaultOptions = {
+    logger: console,
+    logRequests: true,
+    logResponses: false,
+    prefix: () => `[${Date.now()}]`,
+    variableFilter: {
+        keywords: ["password"],
+        replacementText: "[FILTERED]"
+    }
 }
 
-const filterPasswordFromVariables = (variables: { password?: string }) => {
-    deepReplace(variables, "password", "[FILTERED]")
-
-    return variables
+interface Options {
+    logger: Logger
+    logRequests: boolean
+    logResponses: boolean
+    prefix: () => string
+    variableFilter: VariableFilter | false
 }
 
-const stringifiedRequestAttributes = ({ headers, variables, queryString, operationName }: request): string => {
-    const filteredVariables = filterPasswordFromVariables(variables)
-
-    const stringifiedHeaders = JSON.stringify(headers)
-    const stringifiedVariables = JSON.stringify(filteredVariables)
-    const stringifiedQueryString = JSON.stringify(queryString).replace(/\s/g, '').replace(/\\n/g, " ")
-
-    return `${operationName}\nHeaders: ${stringifiedHeaders}\nQueryString: ${stringifiedQueryString}\nVariables: ${stringifiedVariables}`
+export interface UserOptions {
+    logger?: Logger
+    logRequests?: boolean
+    logResponses?: boolean
+    prefix?: () => string
+    variableFilter?: VariableFilter | false
 }
 
-export interface request {
-    headers: object
-    queryString: any
-    operationName: string
-    variables: object
+export interface Logger {
+    log(msg: string): any
 }

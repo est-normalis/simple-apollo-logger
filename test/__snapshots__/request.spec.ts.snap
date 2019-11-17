@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`requestDidStart function introspection query request logs introspection query 1`] = `
+exports[`requestDidStart function when logging requests is enabled introspection query request logs introspection query 1`] = `
 [MockFunction] {
   "calls": Array [
     Array [
@@ -19,7 +19,7 @@ Variables: {}",
 }
 `;
 
-exports[`requestDidStart function login mutation request logs login mutation 1`] = `
+exports[`requestDidStart function when logging requests is enabled login mutation request logs login mutation 1`] = `
 [MockFunction] {
   "calls": Array [
     Array [
