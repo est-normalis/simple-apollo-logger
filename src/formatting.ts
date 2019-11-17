@@ -15,10 +15,11 @@ export const stringifiedRequestAttributes = (
   { headers, variables, queryString, operationName }: Request,
   variableFilter: VariableFilter | undefined | false
 ): string => {
+  const copyOfVariables = JSON.parse(JSON.stringify(variables))
   if (variableFilter) {
     variableFilter.keywords.forEach(keyword => {
       filterPasswordFromVariables(
-        variables,
+        copyOfVariables,
         keyword,
         variableFilter.replacementText
       )
@@ -26,7 +27,7 @@ export const stringifiedRequestAttributes = (
   }
 
   const stringifiedHeaders = JSON.stringify(headers)
-  const stringifiedVariables = JSON.stringify(variables)
+  const stringifiedVariables = JSON.stringify(copyOfVariables)
   const stringifiedQueryString = JSON.stringify(queryString)
     .replace(/\s/g, '')
     .replace(/\\n/g, ' ')
