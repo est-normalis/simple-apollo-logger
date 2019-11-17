@@ -1,6 +1,6 @@
 {
   "name": "@est-normalis/simple-apollo-logger",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A simple logger for Apollo Server",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,7 +8,8 @@
     "build": "tsc",
     "test": "jest",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
-    "prettify": "prettier src/**/*.ts --write"
+    "prettify": "prettier src/**/*.ts --write",
+    "fix": "npm run prettify && npm run lint --fix"
   },
   "repository": {
     "type": "git",
