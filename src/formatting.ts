@@ -45,6 +45,6 @@ export interface Request {
 }
 
 export interface VariableFilter {
-  keywords: [string]
+  keywords: string[]
   replacementText: string
 }
