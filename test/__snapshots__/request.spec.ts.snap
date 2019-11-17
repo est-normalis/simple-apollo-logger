@@ -5,9 +5,9 @@ exports[`requestDidStart function when logging requests is enabled introspection
   "calls": Array [
     Array [
       "[1600689779135] IntrospectionQuery
-Headers: {\\"Authorization\\":\\"eyyyyLMAO.dd.json\\"}
-QueryString: \\"queryIntrospectionQuery{ __schema{ queryType{ name } mutationType{ name } subscriptionType{ name } types{ ...FullType } directives{ name description locations args{ ...InputValue } } } }  fragmentFullTypeon__Type{ kind name description fields(includeDeprecated:true){ name description args{ ...InputValue } type{ ...TypeRef } isDeprecated deprecationReason } inputFields{ ...InputValue } interfaces{ ...TypeRef } enumValues(includeDeprecated:true){ name description isDeprecated deprecationReason } possibleTypes{ ...TypeRef } }  fragmentInputValueon__InputValue{ name description type{ ...TypeRef } defaultValue }  fragmentTypeRefon__Type{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name } } } } } } } } \\"
-Variables: {}",
+  Headers: {\\"Authorization\\":\\"eyyyyLMAO.dd.json\\"}
+  QueryString: \\"queryIntrospectionQuery{ __schema{ queryType{ name } mutationType{ name } subscriptionType{ name } types{ ...FullType } directives{ name description locations args{ ...InputValue } } } }  fragmentFullTypeon__Type{ kind name description fields(includeDeprecated:true){ name description args{ ...InputValue } type{ ...TypeRef } isDeprecated deprecationReason } inputFields{ ...InputValue } interfaces{ ...TypeRef } enumValues(includeDeprecated:true){ name description isDeprecated deprecationReason } possibleTypes{ ...TypeRef } }  fragmentInputValueon__InputValue{ name description type{ ...TypeRef } defaultValue }  fragmentTypeRefon__Type{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name } } } } } } } } \\"
+  Variables: {}",
     ],
   ],
   "results": Array [
@@ -24,15 +24,15 @@ exports[`requestDidStart function when logging requests is enabled login mutatio
   "calls": Array [
     Array [
       "[1600689779135] IntrospectionQuery
-Headers: {\\"Authorization\\":\\"eyyyyLMAO.dd.json\\"}
-QueryString: \\"queryIntrospectionQuery{ __schema{ queryType{ name } mutationType{ name } subscriptionType{ name } types{ ...FullType } directives{ name description locations args{ ...InputValue } } } }  fragmentFullTypeon__Type{ kind name description fields(includeDeprecated:true){ name description args{ ...InputValue } type{ ...TypeRef } isDeprecated deprecationReason } inputFields{ ...InputValue } interfaces{ ...TypeRef } enumValues(includeDeprecated:true){ name description isDeprecated deprecationReason } possibleTypes{ ...TypeRef } }  fragmentInputValueon__InputValue{ name description type{ ...TypeRef } defaultValue }  fragmentTypeRefon__Type{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name } } } } } } } } \\"
-Variables: {}",
+  Headers: {\\"Authorization\\":\\"eyyyyLMAO.dd.json\\"}
+  QueryString: \\"queryIntrospectionQuery{ __schema{ queryType{ name } mutationType{ name } subscriptionType{ name } types{ ...FullType } directives{ name description locations args{ ...InputValue } } } }  fragmentFullTypeon__Type{ kind name description fields(includeDeprecated:true){ name description args{ ...InputValue } type{ ...TypeRef } isDeprecated deprecationReason } inputFields{ ...InputValue } interfaces{ ...TypeRef } enumValues(includeDeprecated:true){ name description isDeprecated deprecationReason } possibleTypes{ ...TypeRef } }  fragmentInputValueon__InputValue{ name description type{ ...TypeRef } defaultValue }  fragmentTypeRefon__Type{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name ofType{ kind name } } } } } } } } \\"
+  Variables: {}",
     ],
     Array [
       "[1600689779135] null
-Headers: undefined
-QueryString: \\"mutation($input:SignupInput!){ signup(input:$input){ token } } \\"
-Variables: {\\"input\\":{\\"email\\":\\"ddddddddassaaaaad@dddd.dde\\",\\"password\\":\\"[FILTERED]\\",\\"name\\":\\"ddoopson\\"}}",
+  Headers: undefined
+  QueryString: \\"mutation($input:SignupInput!){ signup(input:$input){ token } } \\"
+  Variables: {\\"input\\":{\\"email\\":\\"ddddddddassaaaaad@dddd.dde\\",\\"password\\":\\"[FILTERED]\\",\\"name\\":\\"ddoopson\\"}}",
     ],
   ],
   "results": Array [
