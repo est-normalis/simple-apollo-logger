@@ -40,8 +40,20 @@ describe('requestDidStart function', () => {
 
         const disabledLogger = new Logger(opts)
         jest.resetAllMocks()
-        disabledLogger.requestDidStart(introspectionRequest)
+        disabledLogger.requestDidStart(loginRequest)
         
+        expect(console.log).not.toBeCalled()
+    })
+
+    it('does nothing when logging is enabled but its ignored introspection query', () => {
+        const opts = {
+            ignoreSchemaRequest: true
+        }
+
+        const loggerIgnoringSchema = new Logger(opts)
+        jest.resetAllMocks()
+        loggerIgnoringSchema.requestDidStart(introspectionRequest)
+
         expect(console.log).not.toBeCalled()
     })
 })
