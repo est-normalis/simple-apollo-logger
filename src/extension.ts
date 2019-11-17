@@ -1,5 +1,7 @@
 import { stringifiedRequestAttributes } from './formatting'
+import { Request } from './formatting'
 import { defaultOptions, Options, UserOptions } from './options'
+
 export default class ApolloLogExtension {
   private options: Options
 
@@ -7,7 +9,7 @@ export default class ApolloLogExtension {
     this.options = Object.assign(defaultOptions, ops)
   }
 
-  public requestDidStart(request: any): void {
+  public requestDidStart(request: Request): void {
     const isInspectionQuery = request.operationName === 'IntrospectionQuery'
     const isIgnoredRequest =
       this.options.ignoreSchemaRequest && isInspectionQuery
