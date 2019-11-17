@@ -1,9 +1,9 @@
-import { getObjectFromFile } from './helpers/jsonHelper'
-import { request } from '../src/formatting'
+import { Request } from '../src/formatting'
 import Logger from '../src/index'
+import { getObjectFromFile } from './helpers/jsonHelper'
 
-const introspectionRequest = getObjectFromFile('data/requests/introspection.json') as request
-const loginRequest = getObjectFromFile('data/requests/login.json') as request
+const introspectionRequest = getObjectFromFile('data/requests/introspection.json') as Request
+const loginRequest = getObjectFromFile('data/requests/login.json') as Request
 
 console.log = jest.fn()
 jest
