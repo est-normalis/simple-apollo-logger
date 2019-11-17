@@ -1,5 +1,5 @@
 import { getObjectFromFile } from './helpers/jsonHelper'
-import { request } from '../src/index'
+import { request } from '../src/formatting'
 import Logger from '../src/index'
 
 const introspectionRequest = getObjectFromFile('data/requests/introspection.json') as request
@@ -15,19 +15,21 @@ jest
     )
 
 describe("requestDidStart function", () => {
-    describe('introspection query request', () => {
-        it('logs introspection query', () => {
-            logger.requestDidStart(introspectionRequest)
+    describe('when logging requests is enabled', () =>{
+        describe('introspection query request', () => {
+            it('logs introspection query', () => {
+                logger.requestDidStart(introspectionRequest)
 
-            expect(console.log).toMatchSnapshot()
+                expect(console.log).toMatchSnapshot()
+            })
         })
-    })
 
-    describe('login mutation request', () => {
-        it('logs login mutation', () => {
-            logger.requestDidStart(loginRequest)
+        describe('login mutation request', () => {
+            it('logs login mutation', () => {
+                logger.requestDidStart(loginRequest)
 
-            expect(console.log).toMatchSnapshot()
+                expect(console.log).toMatchSnapshot()
+            })
         })
     })
 })
