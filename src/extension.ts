@@ -9,7 +9,9 @@ export default class ApolloLogExtension {
     this.options = Object.assign(defaultOptions, ops)
   }
 
-  public requestDidStart(request: Request): void {
+  // todo: pick a right interface to match both apollo extension
+  // requirements and internal formating requirements
+  public requestDidStart(request: any): void {
     const isInspectionQuery = request.operationName === 'IntrospectionQuery'
     const isIgnoredRequest =
       this.options.ignoreSchemaRequest && isInspectionQuery
