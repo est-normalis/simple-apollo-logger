@@ -6,7 +6,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "prettify": "prettier src/**/*.ts --write"
   },
   "repository": {
     "type": "git",
