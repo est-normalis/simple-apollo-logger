@@ -38,7 +38,8 @@ const defaultOptions = {
   variableFilter: {
     keywords: ['password'],
     replacementText: '[FILTERED]'
-  }
+  },
+  ignoreSchemaRequest: false
 }
 
 interface Options {
@@ -47,6 +48,7 @@ interface Options {
   logResponses: boolean
   prefix: () => string
   variableFilter: VariableFilter | false
+  ignoreSchemaRequest: boolean
 }
 
 export interface UserOptions {
@@ -55,6 +57,7 @@ export interface UserOptions {
   logResponses?: boolean
   prefix?: () => string
   variableFilter?: VariableFilter | false
+  ignoreSchemaRequest?: boolean
 }
 
 export interface Logger {
