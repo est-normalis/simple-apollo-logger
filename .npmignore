@@ -6,3 +6,6 @@ test
 !LICENSE
 !README.md
 tsconfig.json
+tslint.json
+jest.config.js
+.prettierignore
