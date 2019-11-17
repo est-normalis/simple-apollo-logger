@@ -2,6 +2,7 @@ import { stringifiedRequestAttributes } from './formatting'
 import { VariableFilter } from './formatting'
 
 export default class ApolloLogExtension {
+  
   private options: Options
 
   constructor(ops: UserOptions = {}) {
@@ -25,9 +26,13 @@ export default class ApolloLogExtension {
     }
   }
 
+  // tslint:disable-next-line: no-empty
   public parsingDidStart(r: any): void {}
+  // tslint:disable-next-line: no-empty
   public validationDidStart(): void {}
+  // tslint:disable-next-line: no-empty
   public executionDidStart(r: any): void {}
+
   private log(msg: string): void {
     this.options.logger.log(`${this.options.prefix()} ${msg}`)
   }
