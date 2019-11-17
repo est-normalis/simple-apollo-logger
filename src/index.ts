@@ -9,7 +9,10 @@ export default class ApolloLogExtension {
   }
 
   public requestDidStart(request: any): void {
-    if (this.options.logRequests) {
+    const isInspectionQuery = request.operationName === "IntrospectionQuery"
+    const isIgnoredRequest = this.options.ignoreSchemaRequest && isInspectionQuery
+    const shouldBeLogged = this.options.logRequests && !isIgnoredRequest
+    if (shouldBeLogged) {
       this.log(
         stringifiedRequestAttributes(request, this.options.variableFilter)
       )
