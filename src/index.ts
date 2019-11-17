@@ -1,10 +1,6 @@
 import ApolloLogExtension from './extension'
-import { UserOptions, Logger } from './options'
-import  { VariableFilter } from './formatting'
+import { VariableFilter } from './formatting'
+import { Logger, UserOptions } from './options'
 
 export default ApolloLogExtension
-export {
-  UserOptions,
-  Logger,
-  VariableFilter
-}
+export { UserOptions, Logger, VariableFilter }
