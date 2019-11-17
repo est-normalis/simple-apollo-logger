@@ -93,3 +93,11 @@ variableFilter: {
 ```
 
 You can replace it with `false` value if you want to disable it.
+
+#### ignoreSchemaRequest
+
+ignoreSchemaRequest allows you to ignore requests with name "IntrospectionQuery"
+which are usually requests fetching schema file.
+
+**Warning:** you should not use this option in production since you can't be sure
+if query with this name is really fetching the schema.
