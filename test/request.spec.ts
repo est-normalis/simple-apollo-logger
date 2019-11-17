@@ -56,4 +56,19 @@ describe('requestDidStart function', () => {
 
         expect(console.log).not.toBeCalled()
     })
+
+    it('does not mutate given request object', () => {
+        const r = {
+            password: "ddddd",
+            someotherthing: {
+                password: "ddddd"
+            }
+        }
+
+        const rCopy = JSON.parse(JSON.stringify(r))
+
+        logger.requestDidStart(r)
+
+        expect(r).toEqual(rCopy)
+    })
 })
