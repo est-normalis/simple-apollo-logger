@@ -32,7 +32,8 @@ export const stringifiedRequestAttributes = (
     .replace(/\s/g, '')
     .replace(/\\n/g, ' ')
 
-  return `${operationName}
+  return `Request started
+  Operation name: ${operationName}
   Headers: ${stringifiedHeaders}
   QueryString: ${stringifiedQueryString}
   Variables: ${stringifiedVariables}`
