@@ -1,10 +1,10 @@
 import { VariableFilter } from './formatting'
 
 export const defaultOptions = {
-  logger: console,
+  logger: (msg: string) => console.log(msg),
   logRequests: true,
   logResponses: false,
-  prefix: () => `[${Date.now()}]`,
+  prefix: () => `[${Date.now()}] `,
   variableFilter: {
     keywords: ['password'],
     replacementText: '[FILTERED]'
@@ -13,7 +13,7 @@ export const defaultOptions = {
 }
 
 export interface Options {
-  logger: Logger
+  logger: (msg: string) => any
   logRequests: boolean
   logResponses: boolean
   prefix: () => string
@@ -22,14 +22,10 @@ export interface Options {
 }
 
 export interface UserOptions {
-  logger?: Logger
+  logger?: (msg: string) => any
   logRequests?: boolean
   logResponses?: boolean
   prefix?: () => string
   variableFilter?: VariableFilter | false
   ignoreSchemaRequest?: boolean
-}
-
-export interface Logger {
-  log(msg: string): any
 }
