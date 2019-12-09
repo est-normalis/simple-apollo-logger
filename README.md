@@ -62,7 +62,7 @@ Types of all options are aviable for typescript users via UserOptions interface.
 
 #### logger
 
-logger is an object which is called by log method with prepared strings with data.
+logger is a function which is called with a parameter containing prepared strings with data.
 
 #### logRequests
 
@@ -101,3 +101,51 @@ which are usually requests fetching schema file.
 
 **Warning:** you should not use this option in production since you can't be sure
 if query with this name is really fetching the schema.
+
+### Updating
+
+#### 0.2.x to 0.3.x
+
+##### Logger
+
+logger is no longer an object responding to .log method,
+so if you are using custom logger object you need to replace
+it with custom logger method.
+
+Example:
+
+0.2.x:
+
+```typescript
+const opts = {
+    logger: customLogger // customLogger has .log() method
+}
+```
+
+0.3.x:
+
+```typescript
+const opts = {
+    logger: (msg) => customLogger.log(msg)
+}
+```
+
+If you were not using custom logger this update should not make any major changes.
+
+##### Prefix
+
+Default prefix was changed from:
+
+```typescript
+`[${Date.now()}]`
+```
+
+to:
+
+```typescript
+`[${Date.now()}] `
+```
+
+Output from logger with default options should remain the same,
+however space between prefix and message was moved from concatenation
+of these strings to prefix itself.

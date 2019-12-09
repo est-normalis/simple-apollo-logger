@@ -1,5 +1,4 @@
 import { stringifiedRequestAttributes } from './formatting'
-import { Request } from './formatting'
 import { defaultOptions, Options, UserOptions } from './options'
 
 export default class ApolloLogExtension {
@@ -37,6 +36,6 @@ export default class ApolloLogExtension {
   public executionDidStart(r: any): void {}
 
   private log(msg: string): void {
-    this.options.logger.log(`${this.options.prefix()} ${msg}`)
+    this.options.logger(`${this.options.prefix()}${msg}`)
   }
 }
