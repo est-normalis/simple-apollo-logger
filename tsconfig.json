@@ -1,16 +1,15 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "lib": ["esnext", "es2017", "es2015"],
-      "module": "commonjs",
-      "declaration": true,
-      "outDir": "./dist",
-      "strict": true,
-      "esModuleInterop": true,
-      "removeComments": true
-    },
-    "include": [
-      "src/**/*.ts"
-    ]
-  }
-  
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["esnext", "es2017", "es2015"],
+    "module": "commonjs",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "removeComments": true
+  },
+  "include": ["src/**/*.ts"]
+}
