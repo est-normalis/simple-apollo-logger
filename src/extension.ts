@@ -1,24 +1,23 @@
+import { GraphQLExtension } from 'graphql-extensions'
 import { stringifiedRequestAttributes } from './formatting'
 import { defaultOptions, Options, UserOptions } from './options'
+import { ApolloRequest } from './types'
 
-export default class ApolloLogExtension {
+export default class ApolloLogExtension<TContext = any>
+  implements GraphQLExtension<TContext> {
   private options: Options
 
   constructor(ops: UserOptions = {}) {
     this.options = Object.assign(defaultOptions, ops)
   }
 
-  // todo: pick a right interface to match both apollo extension
-  // requirements and internal formating requirements
-  public requestDidStart(request: any): void {
-    const isInspectionQuery = request.operationName === 'IntrospectionQuery'
+  public requestDidStart(r: ApolloRequest): void {
+    const isInspectionQuery = r.operationName === 'IntrospectionQuery'
     const isIgnoredRequest =
       this.options.ignoreSchemaRequest && isInspectionQuery
     const shouldBeLogged = this.options.logRequests && !isIgnoredRequest
     if (shouldBeLogged) {
-      this.log(
-        stringifiedRequestAttributes(request, this.options.variableFilter)
-      )
+      this.log(stringifiedRequestAttributes(r, this.options.variableFilter))
     }
   }
 
