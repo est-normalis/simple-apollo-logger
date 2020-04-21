@@ -10,13 +10,13 @@ A very simple logger for Apollo Server
 
 ### yarn
 
-``` bash
+```bash
 yarn add @est-normalis/simple-apollo-logger
 ```
 
 ### npm
 
-``` bash
+```bash
 npm i @est-normalis/simple-apollo-logger
 ```
 
@@ -24,7 +24,7 @@ npm i @est-normalis/simple-apollo-logger
 
 To use this package you need to add extension to your ApolloServer
 
-``` typescript
+```typescript
 [...]
 import logger from '@est-normalis/simple-apollo-logger'
 
@@ -41,7 +41,7 @@ Now you will be able to see logs in your console.
 Simple-apollo-logger is highly customizable. You can pass options to it
 when creating it's object.
 
-``` typescript
+```typescript
 [...]
 
 const opts = {
@@ -85,7 +85,7 @@ It is using recursive search inside object to find even nested variables with ma
 
 It is the default filter included in this extension:
 
-``` typescript
+```typescript
 variableFilter: {
         keywords: ["password"],
         replacementText: "[FILTERED]"
@@ -118,7 +118,7 @@ Example:
 
 ```typescript
 const opts = {
-    logger: customLogger // customLogger has .log() method
+  logger: customLogger // customLogger has .log() method
 }
 ```
 
@@ -126,24 +126,30 @@ const opts = {
 
 ```typescript
 const opts = {
-    logger: (msg) => customLogger.log(msg)
+  logger: msg => customLogger.log(msg)
 }
 ```
 
 If you were not using custom logger this update should not make any major changes.
+
+#### 0.3.x to 0.4.x
+
+This update should not result in major changes except for not logging headers anymore [reson](https://github.com/est-normalis/simple-apollo-logger/pull/18).
+In this update TypeScript type definitions were also added (they replaced `any` type in `requestDidStart` function), but it should not
+change way of how is the logger working.
 
 ##### Prefix
 
 Default prefix was changed from:
 
 ```typescript
-`[${Date.now()}]`
+;`[${Date.now()}]`
 ```
 
 to:
 
 ```typescript
-`[${Date.now()}] `
+;`[${Date.now()}] `
 ```
 
 Output from logger with default options should remain the same,
