@@ -1,1 +1,22 @@
-{"queryString":"mutation ($input: SignupInput!) {\n  signup(input: $input) {\n    token\n  }\n}\n","operationName":null,"variables":{"input":{"email":"ddddddddassaaaaad@dddd.dde","password":"dddddddddddddddd","name":"ddoopson"}}}
+{
+  "queryString": "mutation ($input: SignupInput!) {\n  signup(input: $input) {\n    token\n  }\n}\n",
+  "operationName": null,
+  "variables": {
+    "input": {
+      "email": "ddddddddassaaaaad@dddd.dde",
+      "password": "dddddddddddddddd",
+      "name": "ddoopson"
+    }
+  },
+  "request": {
+    "size": 0,
+    "timeout": 0,
+    "follow": 20,
+    "compress": true,
+    "counter": 0
+  },
+  "persistedQueryHit": false,
+  "persistedQueryRegister": false,
+  "context": {},
+  "requestContext": {}
+}
