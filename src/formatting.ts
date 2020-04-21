@@ -13,7 +13,7 @@ const filterPasswordFromVariables = (
 }
 
 export const stringifiedRequestAttributes = (
-  { request, variables, queryString, operationName }: ApolloRequest,
+  { context, variables, queryString, operationName }: ApolloRequest,
   variableFilter: VariableFilter | undefined | false
 ): string => {
   const copyOfVariables = JSON.parse(JSON.stringify(variables))
@@ -27,7 +27,6 @@ export const stringifiedRequestAttributes = (
     })
   }
 
-  const stringifiedRequestParms = JSON.stringify(request)
   const stringifiedVariables = JSON.stringify(copyOfVariables)
   const stringifiedQueryString = JSON.stringify(queryString)
     .replace(/\s/g, '')
@@ -35,7 +34,6 @@ export const stringifiedRequestAttributes = (
 
   return `Request started
   Operation name: ${operationName}
-  Request: ${stringifiedRequestParms}
   QueryString: ${stringifiedQueryString}
   Variables: ${stringifiedVariables}`
 }
