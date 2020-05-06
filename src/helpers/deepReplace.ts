@@ -3,7 +3,7 @@ const deepReplace = (
   searchedKey: string,
   replacementString: string
 ) => {
-  if (typeof obj === 'object') {
+  if (typeof obj === 'object' && obj !== null) {
     for (const [key, value] of Object.entries(obj)) {
       if (typeof value === 'object') {
         deepReplace(obj[key], searchedKey, replacementString)
