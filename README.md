@@ -143,13 +143,13 @@ change way of how is the logger working.
 Default prefix was changed from:
 
 ```typescript
-;`[${Date.now()}]`
+`[${Date.now()}]`
 ```
 
 to:
 
 ```typescript
-;`[${Date.now()}] `
+`[${Date.now()}] `
 ```
 
 Output from logger with default options should remain the same,
