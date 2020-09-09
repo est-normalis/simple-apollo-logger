@@ -1,6 +1,6 @@
 {
   "name": "@est-normalis/simple-apollo-logger",
-  "version": "0.4.2",
+  "version": "0.5.0-rc2",
   "description": "A simple logger for Apollo Server",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
