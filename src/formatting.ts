@@ -1,5 +1,4 @@
 import deepReplace from './helpers/deepReplace'
-import { ApolloRequest } from './types'
 
 const filterPasswordFromVariables = (
   variables: any,
@@ -13,7 +12,7 @@ const filterPasswordFromVariables = (
 }
 
 export const stringifiedRequestAttributes = (
-  { variables, queryString, operationName }: ApolloRequest,
+  { query, variables, operationName }: RequestContext,
   variableFilter: VariableFilter | undefined | false
 ): string => {
   const stringifiedVariables = ((): string => {
@@ -32,7 +31,7 @@ export const stringifiedRequestAttributes = (
     return String(variables)
   })()
 
-  const stringifiedQueryString = JSON.stringify(queryString)
+  const stringifiedQueryString = JSON.stringify(query)
     .replace(/\s/g, '')
     .replace(/\\n/g, ' ')
 
@@ -45,4 +44,10 @@ export const stringifiedRequestAttributes = (
 export interface VariableFilter {
   keywords: string[]
   replacementText: string
+}
+
+export interface RequestContext {
+  query?: string
+  variables?: { [name: string]: any }
+  operationName?: string | null
 }
