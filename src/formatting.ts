@@ -41,13 +41,13 @@ export const stringifiedRequestAttributes = (
   Variables: ${stringifiedVariables}`
 }
 
-export interface VariableFilter {
-  keywords: string[]
-  replacementText: string
-}
-
 export interface RequestContext {
   query?: string
   variables?: { [name: string]: any }
   operationName?: string | null
+}
+
+export interface VariableFilter {
+  keywords: string[]
+  replacementText: string
 }
