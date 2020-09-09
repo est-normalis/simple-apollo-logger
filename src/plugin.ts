@@ -9,7 +9,7 @@ export default (ops: UserOptions = {}): ApolloServerPlugin => {
   }
   return {
     requestDidStart(r) {
-      const isInspectionQuery = r.operationName === 'IntrospectionQuery'
+      const isInspectionQuery = r.request.operationName === 'IntrospectionQuery'
       const isIgnoredRequest =
         options.ignoreSchemaRequest && isInspectionQuery
       const shouldBeLogged = options.logRequests && !isIgnoredRequest

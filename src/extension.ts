@@ -17,11 +17,12 @@ export default class ApolloLogExtension<TContext = any>
       this.options.ignoreSchemaRequest && isInspectionQuery
     const shouldBeLogged = this.options.logRequests && !isIgnoredRequest
     if (shouldBeLogged) {
-      const request = {
+      const requestContext = {
         query: r.queryString,
-        variables: r.variables
+        variables: r.variables,
+        operationName: r.operationName
       }
-      this.log(stringifiedRequestAttributes({ operationName: r.operationName, request }, this.options.variableFilter))
+      this.log(stringifiedRequestAttributes(requestContext, this.options.variableFilter))
     }
   }
 
