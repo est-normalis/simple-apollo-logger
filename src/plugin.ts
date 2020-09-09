@@ -14,7 +14,7 @@ export default (ops: UserOptions = {}): ApolloServerPlugin => {
         options.ignoreSchemaRequest && isInspectionQuery
       const shouldBeLogged = options.logRequests && !isIgnoredRequest
       if (shouldBeLogged) {
-        log(stringifiedRequestAttributes(r, options.variableFilter))
+        log(stringifiedRequestAttributes(r.request, options.variableFilter))
       }
       return {
         willSendResponse(ctx) {
