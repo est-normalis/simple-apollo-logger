@@ -16,18 +16,22 @@ export const stringifiedRequestAttributes = (
   { variables, queryString, operationName }: ApolloRequest,
   variableFilter: VariableFilter | undefined | false
 ): string => {
-  const copyOfVariables = JSON.parse(JSON.stringify(variables))
-  if (variableFilter) {
-    variableFilter.keywords.forEach(keyword => {
-      filterPasswordFromVariables(
-        copyOfVariables,
-        keyword,
-        variableFilter.replacementText
-      )
-    })
-  }
+  const stringifiedVariables = ((): string => {
+    if (variables && variableFilter) {
+      const copyOfVariables = JSON.parse(JSON.stringify(variables))
+      variableFilter.keywords.forEach(keyword => {
+        filterPasswordFromVariables(
+          copyOfVariables,
+          keyword,
+          variableFilter.replacementText
+        )
+      })
+      return JSON.stringify(copyOfVariables)
+    }
 
-  const stringifiedVariables = JSON.stringify(copyOfVariables)
+    return String(variables)
+  })()
+
   const stringifiedQueryString = JSON.stringify(queryString)
     .replace(/\s/g, '')
     .replace(/\\n/g, ' ')
