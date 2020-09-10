@@ -17,7 +17,7 @@ export const stringifiedRequestAttributes = (
   variableFilter: VariableFilter | undefined | false
 ): string => {
   const copyOfVariables = JSON.parse(variables === undefined ? String(variables) : JSON.stringify(variables))
-  if (variableFilter) {
+  if (variableFilter && variables) {
     variableFilter.keywords.forEach(keyword => {
       filterPasswordFromVariables(
         copyOfVariables,
