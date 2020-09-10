@@ -1,6 +1,6 @@
 {
   "name": "@est-normalis/simple-apollo-logger",
-  "version": "0.4.2",
+  "version": "0.5.0-rc2",
   "description": "A simple logger for Apollo Server",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -29,6 +29,7 @@
   "devDependencies": {
     "@types/jest": "^26.0.13",
     "@types/node": "^14.10.0",
+    "apollo-server-plugin-base": "^0.9.1",
     "apollo-server-env": "^2.4.5",
     "apollo-server-types": "^0.5.1",
     "graphql": "^15.3.0",

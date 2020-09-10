@@ -17,7 +17,12 @@ export default class ApolloLogExtension<TContext = any>
       this.options.ignoreSchemaRequest && isInspectionQuery
     const shouldBeLogged = this.options.logRequests && !isIgnoredRequest
     if (shouldBeLogged) {
-      this.log(stringifiedRequestAttributes(r, this.options.variableFilter))
+      const requestContext = {
+        query: r.queryString,
+        variables: r.variables,
+        operationName: r.operationName
+      }
+      this.log(stringifiedRequestAttributes(requestContext, this.options.variableFilter))
     }
   }
 
@@ -28,11 +33,11 @@ export default class ApolloLogExtension<TContext = any>
   }
 
   // tslint:disable-next-line: no-empty
-  public parsingDidStart(r: any): void {}
+  public parsingDidStart(r: any): void { }
   // tslint:disable-next-line: no-empty
-  public validationDidStart(): void {}
+  public validationDidStart(): void { }
   // tslint:disable-next-line: no-empty
-  public executionDidStart(r: any): void {}
+  public executionDidStart(r: any): void { }
 
   private log(msg: string): void {
     this.options.logger(`${this.options.prefix()}${msg}`)
