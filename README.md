@@ -22,7 +22,20 @@ npm i @est-normalis/simple-apollo-logger
 
 ## Usage
 
-To use this package you need to add extension to your ApolloServer
+To use this package you need to add plugin or extension to your ApolloServer
+
+### Plugin
+
+```typescript
+[...]
+import { apolloLogPlugin } from '@est-normalis/simple-apollo-logger'
+
+const server = ApolloServer({
+    plugins: [apolloLogPlugin()],
+})
+```
+
+### Extension (deprecated)
 
 ```typescript
 [...]
@@ -40,6 +53,23 @@ Now you will be able to see logs in your console.
 
 Simple-apollo-logger is highly customizable. You can pass options to it
 when creating it's object.
+
+### Plugin configuration
+
+```typescript
+[...]
+
+const opts = {
+    logger = customLogger
+    logRequests = false
+}
+
+[...]
+    plugins: [apolloLogPlugin(opts)],
+[...]
+```
+
+### Extension configuration
 
 ```typescript
 [...]
@@ -143,15 +173,54 @@ change way of how is the logger working.
 Default prefix was changed from:
 
 ```typescript
-`[${Date.now()}]`
+;`[${Date.now()}]`
 ```
 
 to:
 
 ```typescript
-`[${Date.now()}] `
+;`[${Date.now()}] `
 ```
 
 Output from logger with default options should remain the same,
 however space between prefix and message was moved from concatenation
 of these strings to prefix itself.
+
+#### 0.4.x to 0.5.x
+
+Version 0.5 introduces usage of new [plugin API](https://www.apollographql.com/docs/apollo-server/integrations/plugins/).
+Using plugin instead of extension is highly recommended, but not obligatory.
+
+To use new plugin API change delete your logging extension from server initialization:
+
+```typescript
+const server = ApolloServer({
+    extensions: [() => new logger()], // remove this line
+    [...]
+})
+```
+
+Change default import to `apolloLogPlugin` named import:
+
+before:
+
+```typescript
+import logger from '@est-normalis/simple-apollo-logger'
+```
+
+after
+
+```typescript
+import { apolloLogPlugin } from '@est-normalis/simple-apollo-logger'
+```
+
+and use it in server initialization
+
+```typescript
+const server = ApolloServer({
+    plugins: [apolloLogPlugin()],
+    [...]
+})
+```
+
+Possible configuration options are not changed from version 0.4.
