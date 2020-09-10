@@ -22,7 +22,7 @@ npm i @est-normalis/simple-apollo-logger
 
 ## Usage
 
-To use this package you need to add plugin or extension to your ApolloServer
+To use this package you need to add plugin or extension (not recommended) to your ApolloServer
 
 ### Plugin
 
