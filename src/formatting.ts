@@ -16,7 +16,7 @@ export const stringifiedRequestAttributes = (
   { variables, queryString, operationName }: ApolloRequest,
   variableFilter: VariableFilter | undefined | false
 ): string => {
-  const copyOfVariables = JSON.parse(JSON.stringify(variables))
+  const copyOfVariables = JSON.parse(variables === undefined ? String(variables) : JSON.stringify(variables))
   if (variableFilter) {
     variableFilter.keywords.forEach(keyword => {
       filterPasswordFromVariables(
