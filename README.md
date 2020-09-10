@@ -134,58 +134,6 @@ if query with this name is really fetching the schema.
 
 ### Updating
 
-#### 0.2.x to 0.3.x
-
-##### Logger
-
-logger is no longer an object responding to .log method,
-so if you are using custom logger object you need to replace
-it with custom logger method.
-
-Example:
-
-0.2.x:
-
-```typescript
-const opts = {
-  logger: customLogger // customLogger has .log() method
-}
-```
-
-0.3.x:
-
-```typescript
-const opts = {
-  logger: msg => customLogger.log(msg)
-}
-```
-
-If you were not using custom logger this update should not make any major changes.
-
-#### 0.3.x to 0.4.x
-
-This update should not result in major changes except for not logging headers anymore [reson](https://github.com/est-normalis/simple-apollo-logger/pull/18).
-In this update TypeScript type definitions were also added (they replaced `any` type in `requestDidStart` function), but it should not
-change way of how is the logger working.
-
-##### Prefix
-
-Default prefix was changed from:
-
-```typescript
-;`[${Date.now()}]`
-```
-
-to:
-
-```typescript
-;`[${Date.now()}] `
-```
-
-Output from logger with default options should remain the same,
-however space between prefix and message was moved from concatenation
-of these strings to prefix itself.
-
 #### 0.4.x to 0.5.x
 
 Version 0.5 introduces usage of new [plugin API](https://www.apollographql.com/docs/apollo-server/integrations/plugins/).
@@ -224,3 +172,55 @@ const server = ApolloServer({
 ```
 
 Possible configuration options are not changed from version 0.4.
+
+#### 0.3.x to 0.4.x
+
+This update should not result in major changes except for not logging headers anymore [reson](https://github.com/est-normalis/simple-apollo-logger/pull/18).
+In this update TypeScript type definitions were also added (they replaced `any` type in `requestDidStart` function), but it should not
+change way of how is the logger working.
+
+##### Prefix
+
+Default prefix was changed from:
+
+```typescript
+;`[${Date.now()}]`
+```
+
+to:
+
+```typescript
+;`[${Date.now()}] `
+```
+
+Output from logger with default options should remain the same,
+however space between prefix and message was moved from concatenation
+of these strings to prefix itself.
+
+#### 0.2.x to 0.3.x
+
+##### Logger
+
+logger is no longer an object responding to .log method,
+so if you are using custom logger object you need to replace
+it with custom logger method.
+
+Example:
+
+0.2.x:
+
+```typescript
+const opts = {
+  logger: customLogger // customLogger has .log() method
+}
+```
+
+0.3.x:
+
+```typescript
+const opts = {
+  logger: msg => customLogger.log(msg)
+}
+```
+
+If you were not using custom logger this update should not make any major changes.
