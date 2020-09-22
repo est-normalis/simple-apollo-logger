@@ -86,9 +86,9 @@ const opts = {
 
 The options object will be merged with default settings and used by logger.
 
-### Aviable options
+### Available options
 
-Types of all options are aviable for typescript users via UserOptions interface.
+Types of all options are available for typescript users via UserOptions interface.
 
 #### logger
 
