@@ -22,7 +22,12 @@ export default class ApolloLogExtension<TContext = any>
         variables: r.variables,
         operationName: r.operationName
       }
-      this.log(stringifiedRequestAttributes(requestContext, this.options.variableFilter))
+      this.log(
+        stringifiedRequestAttributes(
+          requestContext,
+          this.options.variableFilter
+        )
+      )
     }
   }
 
@@ -33,11 +38,11 @@ export default class ApolloLogExtension<TContext = any>
   }
 
   // tslint:disable-next-line: no-empty
-  public parsingDidStart(r: any): void { }
+  public parsingDidStart(r: any): void {}
   // tslint:disable-next-line: no-empty
-  public validationDidStart(): void { }
+  public validationDidStart(): void {}
   // tslint:disable-next-line: no-empty
-  public executionDidStart(r: any): void { }
+  public executionDidStart(r: any): void {}
 
   private log(msg: string): void {
     this.options.logger(`${this.options.prefix()}${msg}`)
