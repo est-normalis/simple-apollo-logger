@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/%40est-normalis%2Fsimple-apollo-logger.svg)](https://www.npmjs.com/package/@est-normalis/simple-apollo-logger)
 ![npm](https://img.shields.io/npm/dt/@est-normalis/simple-apollo-logger)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/est-normalis/simple-apollo-logger/Test%20and%20build%20library)
 
 A very simple logger for Apollo Server
 
